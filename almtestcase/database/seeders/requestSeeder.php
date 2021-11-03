@@ -23,6 +23,7 @@ class requestSeeder extends Seeder
                 'client_name' => Str::random(10),
                 'id_user'=>random_int(0,10),
                 'respo'=>Str::random(10),
+                'file_client'=>Str::random(10),
                 'email_client' => Str::random(10).'@gmail.com',
             ]);
         } catch (\Exception $e) {

@@ -32,7 +32,7 @@
     </table>
 
     <h2>Make request</h2>
-    <form action="make_req" method="get">
+    <form enctype="multipart/form-data" action="make_req" method="get">
         <label>
             Theme: <input type="text" name="theme">
         </label>
@@ -44,6 +44,9 @@
         </label>
         <label>
             Email: <input type="email" name="email_client">
+        </label>
+        <label>
+            Файл: <input type="file" name="file_client">
         </label>
         <input type='submit' value="Make request to manager!">
     </form>

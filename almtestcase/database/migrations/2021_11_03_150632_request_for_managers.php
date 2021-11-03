@@ -21,6 +21,7 @@ class RequestForManagers extends Migration
             $table->string('client_name');
             $table->string('email_client');
             $table->string('respo');
+            $table->string("file_client")->default(null);
             $table->timestamp('created_at')->useCurrent()->comment('создано');
             $table->timestamp('updated_at')->useCurrent()->comment('обновлено');
         });

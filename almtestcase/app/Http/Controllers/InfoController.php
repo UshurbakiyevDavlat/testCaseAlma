@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
+use Psy\Util\Str;
 
 class InfoController extends Controller
 {
@@ -32,6 +34,12 @@ class InfoController extends Controller
             ->get();
 
 
+        $folder_name = "client_files";
+        $file_name = \Illuminate\Support\Str::random(20);
+        if ($request->file("file_client")) {
+            Storage::disk('public')->put($folder_name,$request->file(),$file_name);
+        }
+
         if (isset($timeConst[0]->created_at)) {
             $datetime1 = date_create($timeConst[0]->created_at);
             $datetime2 = date_create(date("Y-m-d h:i:s"));
@@ -49,6 +57,7 @@ class InfoController extends Controller
                         'message' => $request->message,
                         'client_name' => $request->client_name,
                         'respo'=>'nothing',
+                        'file_client'=>Storage::url($folder_name.DIRECTORY_SEPARATOR.$file_name),
                         'email_client' => $request->email,
                         'created_at'=>date('Y-m-d h:i:s')
                     ]);
@@ -75,6 +84,7 @@ class InfoController extends Controller
                     'client_name' => $request->client_name,
                     'email_client' => $request->email_client,
                     'respo'=>'nothing',
+                    'file_client'=>Storage::url($folder_name.DIRECTORY_SEPARATOR.$file_name),
                     'created_at'=>date('Y-m-d h:i:s')
                 ]);
 

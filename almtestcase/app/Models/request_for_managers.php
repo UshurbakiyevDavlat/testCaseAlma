@@ -21,7 +21,8 @@ class request_for_managers extends Model
         'message',
         'client_name',
         'email_client',
-        'respo'
+        'respo',
+        "file_client"
     ];
 
 
