@@ -1,3 +1,7 @@
+@php
+ use App\Http\Controllers\AuthController;
+{{ AuthController::logout(); }}
+@endphp
 <div>
     <form action="registrationform" method="get">
         <input type="submit" value="Регистрация">

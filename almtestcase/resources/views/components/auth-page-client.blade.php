@@ -3,6 +3,10 @@
         Page for clients
     </h2>
 
+    <form action="/"> @method('GET')
+        <input type="submit" value="Выход">
+    </form>
+
     <h3>
         Client requests
     </h3>
@@ -41,6 +45,6 @@
         <label>
             Email: <input type="email" name="email_client">
         </label>
-        <input type = 'submit' value="Make request to manager!">
+        <input type='submit' value="Make request to manager!">
     </form>
 </div>

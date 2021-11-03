@@ -17,10 +17,14 @@ class User extends Authenticatable
      *
      * @var string[]
      */
+    protected $table = 'users';
+
+    protected $primaryKey = 'id';
+
     protected $fillable = [
-        'name',
-        'email',
+        'nickname',
         'password',
+        'type'
     ];
 
     /**
@@ -39,6 +43,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+        'type'=>'int'
     ];
 }

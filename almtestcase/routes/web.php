@@ -29,4 +29,5 @@ Route::get('register',[AuthController::class,"signUp"]);
 
 Route::get('auth', [AuthController::class,"login"]);
 
-Route::get('make_req',[InfoController::class,"makeReq"]);
+Route::get('make_req',[InfoController::class,"makeReq"])->middleware('auth');;
+Route::get('update_req',[InfoController::class,"updateReq"])->middleware('auth');;
